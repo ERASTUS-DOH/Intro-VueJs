@@ -18,9 +18,18 @@
     </header>
     <section id="events">
       <h2>Events in Action</h2>
-      <button>Add</button>
-      <button>Remove</button>
+      <button @click="increaseCounter(10)">Add</button>
+      <button @click="decreaseCounter(5)">Remove</button>
       <p>Result: {{ counter }}</p>
+      <button @click="resetInput()">Reset</button>
+<!--      <input type="text" v-bind:value="name" v-on:input="setNameValue($event, 'Doh')" v-on:keyup.enter="setConfirmedName" >-->
+      <input type="text" v-model="name" @:keyup.enter="setConfirmedName" >
+      <p>Your name is : {{ outPutFullName }}</p>
+
+      <form v-on:submit.prevent="subMethod()">
+        <input type="text">
+        <button type="submit">sign-up</button>
+      </form>
     </section>
   </body>
 </html>
