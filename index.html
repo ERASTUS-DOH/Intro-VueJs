@@ -1,35 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vue Basics</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://unpkg.com/vue@next" defer></script>
-    <script src="app.js" defer></script>
-  </head>
-  <body>
-    <header>
-      <h1>Vue Events</h1>
-    </header>
-    <section id="events">
-      <h2>Events in Action</h2>
-      <button @click="increaseCounter(10)">Add</button>
-      <button @click="decreaseCounter(5)">Remove</button>
-      <p>Result: {{ counter }}</p>
-      <button @click="resetInput()">Reset</button>
-<!--      <input type="text" v-bind:value="name" v-on:input="setNameValue($event, 'Doh')" v-on:keyup.enter="setConfirmedName" >-->
-      <input type="text" v-model="name" @:keyup.enter="setConfirmedName" >
-      <p>Your name is : {{ outPutFullName }}</p>
-
-      <form v-on:submit.prevent="subMethod()">
-        <input type="text">
-        <button type="submit">sign-up</button>
-      </form>
-    </section>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Basics</title>
+  <link
+          href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+          rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/vue@next" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+<header>
+  <h1>Vue Dynamic Styling</h1>
+</header>
+<section id="styling">
+<!--  <div :class="boxSelected ? 'demo active': 'demo'" @click="boxSelected('A')"></div>-->
+  <div class="demo" :class="{active: boxASelected}" @click="boxSelected('A')"></div>
+  <div class="demo" :class="{active: boxBSelected}" @click="boxSelected('B')"></div>
+  <div class="demo" :class="{active: boxCSelected}" @click="boxSelected('C')"></div>
+</section>
+</body>
 </html>

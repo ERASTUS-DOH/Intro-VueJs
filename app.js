@@ -1,45 +1,22 @@
 const app = Vue.createApp({
-  data() {
+  data(){
     return {
-      counter: 0,
-      name: '',
-      confirmedName:''
-
-    };
-  },
-  methods:{
-    updateName(){
-      this.name = "Welcome";
-      console.log("i have been called");
-    },
-    setConfirmedName(){
-      this.confirmedName = this.name;
-    },
-    subMethod(){
-      alert("form-submitted");
-    },
-    setNameValue(event, lastName){
-      this.name = event.target.value;
-    },
-    increaseCounter(incrementer){
-      this.counter += incrementer;
-    },
-    decreaseCounter(decrement){
-      this.counter -= decrement;
-    },
-    resetInput(){
-      this.name = '';
+      boxASelected:false,
+      boxBSelected:false,
+      boxCSelected:false
     }
   },
-  computed:{
-    outPutFullName() {
-      console.log('Running again')
-      if(this.name === ''){
-        return '';
+  methods:{
+    boxSelected(box){
+      if(box === 'A'){
+        this.boxASelected = !this.boxASelected;
+      }else if(box === 'B'){
+        this.boxBSelected = !this.boxBSelected;;
+      }else if(box === 'C'){
+        this.boxCSelected = !this.boxCSelected;
       }
-      return this.name + ' ' + 'Doh';
     }
   }
 });
 
-app.mount('#events');
+app.mount('#styling');
